@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form (ngSubmit)="save()">
+
+    <ion-list>
+       
+          <ion-item>
+            <ion-label>Client</ion-label>
+            <ion-select placeholder="Select client to filter sites"  [(ngModel)]="clientId"  [ngModelOptions]="{standalone: true}" (ionChange)="selectClient()">
+              <ion-select-option *ngFor="let c of clients" [value]="c.id">{{c.name}}</ion-select-option>
+              
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>Sites</ion-label>
+            <ion-select placeholder="Select site"  [(ngModel)]="siteId"  [ngModelOptions]="{standalone: true}">
+              <ion-select-option *ngFor="let c of sites" [value]="c.id">{{c.name}}</ion-select-option>
+              
+            </ion-select>
+          </ion-item>
+          <div *ngFor="let record of reports; index as i">
+              <ion-item-divider *ngIf= "record.fieldType == 'LABEL'" >
+                  <ion-label style="font-weight: bold; width: 100%; text-align: center; color: black;" text-uppercase>{{record.fieldName}}</ion-label>
+              </ion-item-divider>
+            <ion-item *ngIf= "record.fieldType != 'LABEL'" >
+              <ion-label position="floating">{{record.fieldName}}</ion-label>
+              <ion-input *ngIf="record.fieldType == 'TEXT'" [(ngModel)]="data[i]"  [ngModelOptions]="{standalone: true}" [placeholder]="record.fieldLabel" [required]="record.required == 'YES'"></ion-input>
+              <ion-input *ngIf="record.fieldType == 'NUMBER'" type="number" [(ngModel)]="data[i]"  [ngModelOptions]="{standalone: true}" [placeholder]="record.fieldLabel"></ion-input>
+              <ion-textarea *ngIf="record.fieldType == 'TEXTAREA'" type="number" [(ngModel)]="data[i]"  [ngModelOptions]="{standalone: true}" [placeholder]="record.fieldLabel"></ion-textarea>
+              <ion-datetime *ngIf="record.fieldType == 'DATE'" [(ngModel)]="data[i]"  [ngModelOptions]="{standalone: true}" display-format="MMM DD, YYYY HH:mm" picker-format="MMMM YYYY"></ion-datetime>
+            </ion-item>
+          </div>
+
+        
+          
+    </ion-list>
+
+    <div padding>
+        <ion-button color="danger" type="submit" size="small"  expand="block">Save</ion-button>
+      </div>
+
+    </form>
+
+</ion-content>

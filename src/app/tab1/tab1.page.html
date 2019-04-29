@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Time Sheets
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   
+    <ion-list lines="none">
+      <ion-list-header>
+        <ion-label>History</ion-label>
+      </ion-list-header>
+
+
+      <ion-item-divider *ngFor="let record of records">
+          <ion-item-group>
+            <ion-item>
+                <ion-card>
+                    <ion-card-header>
+                      <ion-card-subtitle>{{record.logTime}}</ion-card-subtitle>
+                      <ion-card-title>{{record.siteCode}}</ion-card-title>
+                    </ion-card-header>
+                  
+                    <ion-card-content>
+                      <ion-row>
+                        <ion-label>
+                         <strong>Description</strong> 
+                        </ion-label>
+                           {{record.briefDescriptionOfWork}}
+                      </ion-row>
+                        <ion-row>
+                            <ion-col>
+                             <strong>Transport cost</strong>  
+                            </ion-col>
+                            <ion-col>
+                               {{record.transportCost}}
+                            </ion-col>
+                           
+                          </ion-row>
+                          <ion-row>
+                                <ion-col>
+                                  <strong>Asset</strong>
+                                </ion-col>
+                                <ion-col>
+                                  {{record.assetid}}
+                                </ion-col>
+                          </ion-row>
+                          <ion-row>
+                              <ion-col>
+                                  <strong >Cost Code </strong>
+                                </ion-col>
+                                <ion-col>
+                                  {{record.costCode}}
+                                </ion-col>
+                          </ion-row>
+                      
+                    </ion-card-content>
+                  </ion-card>
+            </ion-item>
+              <!-- <ion-item-divider>
+                <ion-label>{{record.siteCode}} | {{record.logTime}}</ion-label>
+              </ion-item-divider>
+            
+              <ion-item>
+                <ion-label>Angola</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>Argentina</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>Armenia</ion-label>
+              </ion-item> -->
+            </ion-item-group>
+
+        </ion-item-divider>
+      
+    </ion-list>
+</ion-content>

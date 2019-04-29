@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Daily Time Sheet
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div padding>
+     <ion-list>
+      <ion-item>
+        <ion-label position="floating">Site Code</ion-label>
+        <ion-input [(ngModel)]="form.siteCode"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Asset Id</ion-label>
+        <ion-input [(ngModel)]="form.assetId"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Cost Code</ion-label>
+        <ion-input [(ngModel)]="form.costCode"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Hours</ion-label>
+        <ion-input [(ngModel)]="form.hours"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Transport Cost</ion-label>
+        <ion-input [(ngModel)]="form.transportCost"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Description of work</ion-label>
+        <ion-textarea  [(ngModel)]="form.briefDescriptionOfWork"></ion-textarea>
+      </ion-item>
+     </ion-list>
+  </div>
+  <div padding>
+    <ion-button color="danger" (click)="save()" size="large"  expand="block">Save</ion-button>
+  </div>
+</ion-content>
